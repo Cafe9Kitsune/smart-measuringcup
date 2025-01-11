@@ -117,3 +117,56 @@ calculateButton.addEventListener('click', () => {
 
   resultDiv.innerHTML = resultHTML; // 결과 출력
 });
+
+// 레시피 선택 시 재료 불러오기
+recipeSelect.addEventListener('change', () => {
+  const selectedRecipeName = recipeSelect.value;
+  if (!selectedRecipeName) return;
+
+  const savedRecipes = JSON.parse(localStorage.getItem('recipes'));
+  const recipe = savedRecipes[selectedRecipeName];
+
+  ingredientsList.innerHTML = ''; // 기존 재료 삭제 후 새로 추가
+  recipe.ingredients.forEach(ingredient => {
+    const newGroup = document.createElement('div');
+    newGroup.className = 'input-group';
+    newGroup.innerHTML = `
+      <input type="text" value="${ingredient.name}" class="ingredient-name">
+      <input type="number" value="${ingredient.amount}" class="ingredient-amount">
+      <button class="delete-btn">❌</button>
+    `;
+    ingredientsList.appendChild(newGroup);
+
+    newGroup.querySelector('.delete-btn').addEventListener('click', () => {
+      newGroup.remove(); // 재료 삭제 기능
+    });
+  });
+
+  console.log("불러온 재료 리스트:", Array.from(ingredientsList.querySelectorAll('.ingredient-name')));
+});
+
+// 계산 기능
+calculateButton.addEventListener('click', () => {
+  const reduceRatio = parseFloat(document.getElementById('reduce-ratio').value); // 비율 가져오기
+  const ingredients = Array.from(ingredientsList.querySelectorAll('.input-group')).map(group => {
+    const name = group.querySelector('.ingredient-name').value.trim(); // 재료명
+    const amount = parseFloat(group.querySelector('.ingredient-amount').value); // 양
+    return { name, amount };
+  }).filter(ingredient => ingredient.name && !isNaN(ingredient.amount)); // 유효성 검사
+
+  console.log("계산할 재료 리스트:", ingredients); // 디버깅용
+
+  if (ingredients.length === 0) {
+    resultDiv.innerHTML = '<p>재료를 입력해 주세요!</p>';
+    return;
+  }
+
+  // 결과 HTML 생성
+  let resultHTML = '<h3>변환된 레시피</h3>';
+  ingredients.forEach(ingredient => {
+    const newAmount = ingredient.amount * reduceRatio; // 비율에 따른 변환
+    resultHTML += `<p>${ingredient.name}: ${newAmount.toFixed(2)}</p>`;
+  });
+
+  resultDiv.innerHTML = resultHTML; // 결과 출력
+});
