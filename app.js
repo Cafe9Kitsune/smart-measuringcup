@@ -79,44 +79,6 @@ function updateRecipeList() {
 }
 window.onload = updateRecipeList; // 페이지 로드 시 호출
 
-// ** 재료 추가 기능 **
-addIngredientButton.addEventListener('click', () => {
-  const newGroup = document.createElement('div');
-  newGroup.className = 'input-group';
-  newGroup.innerHTML = `
-    <input type="text" placeholder="재료명" class="ingredient-name">
-    <input type="text" placeholder="양 (g, ml 등)" class="ingredient-amount">
-    <button class="delete-btn">❌</button>
-  `;
-  ingredientsList.appendChild(newGroup);
-
-  newGroup.querySelector('.delete-btn').addEventListener('click', () => {
-    newGroup.remove(); // 재료 삭제
-  });
-});
-
-// ** 레시피 계산 기능 **
-calculateButton.addEventListener('click', () => {
-  const reduceRatio = parseFloat(document.getElementById('reduce-ratio').value); // 비율 가져오기
-  const ingredients = Array.from(ingredientsList.querySelectorAll('.input-group')).map(group => {
-    const name = group.querySelector('.ingredient-name').value.trim();
-    const amount = parseFloat(group.querySelector('.ingredient-amount').value);
-    return { name, amount };
-  }).filter(ingredient => ingredient.name && !isNaN(ingredient.amount)); // 유효성 검사
-
-  if (ingredients.length === 0) {
-    resultDiv.innerHTML = '<p>재료를 입력해 주세요!</p>';
-    return;
-  }
-
-  let resultHTML = '<h3>변환된 레시피</h3>';
-  ingredients.forEach(ingredient => {
-    const newAmount = ingredient.amount * reduceRatio; // 비율에 따라 양 계산
-    resultHTML += `<p>${ingredient.name}: ${newAmount.toFixed(2)}</p>`;
-  });
-
-  resultDiv.innerHTML = resultHTML; // 결과 출력
-});
 
 // 레시피 선택 시 재료 불러오기
 recipeSelect.addEventListener('change', () => {
@@ -145,31 +107,6 @@ recipeSelect.addEventListener('change', () => {
   console.log("불러온 재료 리스트:", Array.from(ingredientsList.querySelectorAll('.ingredient-name')));
 });
 
-// 계산 기능
-calculateButton.addEventListener('click', () => {
-  const reduceRatio = parseFloat(document.getElementById('reduce-ratio').value); // 비율 가져오기
-  const ingredients = Array.from(ingredientsList.querySelectorAll('.input-group')).map(group => {
-    const name = group.querySelector('.ingredient-name').value.trim(); // 재료명
-    const amount = parseFloat(group.querySelector('.ingredient-amount').value); // 양
-    return { name, amount };
-  }).filter(ingredient => ingredient.name && !isNaN(ingredient.amount)); // 유효성 검사
-
-  console.log("계산할 재료 리스트:", ingredients); // 디버깅용
-
-  if (ingredients.length === 0) {
-    resultDiv.innerHTML = '<p>재료를 입력해 주세요!</p>';
-    return;
-  }
-
-  // 결과 HTML 생성
-  let resultHTML = '<h3>변환된 레시피</h3>';
-  ingredients.forEach(ingredient => {
-    const newAmount = ingredient.amount * reduceRatio; // 비율에 따른 변환
-    resultHTML += `<p>${ingredient.name}: ${newAmount.toFixed(2)}</p>`;
-  });
-
-  resultDiv.innerHTML = resultHTML; // 결과 출력
-});
 
 
 // ** 재료 추가 기능 **
@@ -208,8 +145,9 @@ calculateButton.addEventListener('click', () => {
   // 결과 HTML 생성
   let resultHTML = '<h3>변환된 레시피</h3>';
   ingredients.forEach(ingredient => {
-    const newAmount = (ingredient.amount * reduceRatio).toFixed(1); // 소수점 1자리까지 표시
-    resultHTML += `<p>${ingredient.name}: ${newAmount}${ingredient.unit}</p>`;
+    const newAmount = ingredient.amount * reduceRatio; // 계산 결과
+    const displayAmount = Number.isInteger(newAmount) ? newAmount : newAmount.toFixed(1); // 정수 여부에 따라 소수점 처리
+    resultHTML += `<p>${ingredient.name}: ${displayAmount}${ingredient.unit}</p>`;
   });
 
   resultDiv.innerHTML = resultHTML; // 결과 출력
