@@ -28,7 +28,7 @@ modalAddIngredientButton.addEventListener('click', () => {
   newGroup.className = 'input-group';
   newGroup.innerHTML = `
     <input type="text" placeholder="재료명" class="modal-ingredient-name">
-    <input type="number" placeholder="양 (g, ml 등)" class="modal-ingredient-amount">
+    <input type="text" placeholder="양 (g, ml 등)" class="modal-ingredient-amount">
     <button class="delete-btn">❌</button>
   `;
   modalIngredientsList.appendChild(newGroup);
@@ -85,7 +85,7 @@ addIngredientButton.addEventListener('click', () => {
   newGroup.className = 'input-group';
   newGroup.innerHTML = `
     <input type="text" placeholder="재료명" class="ingredient-name">
-    <input type="number" placeholder="양 (g, ml 등)" class="ingredient-amount">
+    <input type="text" placeholder="양 (g, ml 등)" class="ingredient-amount">
     <button class="delete-btn">❌</button>
   `;
   ingredientsList.appendChild(newGroup);
@@ -132,7 +132,7 @@ recipeSelect.addEventListener('change', () => {
     newGroup.className = 'input-group';
     newGroup.innerHTML = `
       <input type="text" value="${ingredient.name}" class="ingredient-name">
-      <input type="number" value="${ingredient.amount}" class="ingredient-amount">
+      <input type="text" value="${ingredient.amount}" class="ingredient-amount">
       <button class="delete-btn">❌</button>
     `;
     ingredientsList.appendChild(newGroup);
@@ -166,6 +166,50 @@ calculateButton.addEventListener('click', () => {
   ingredients.forEach(ingredient => {
     const newAmount = ingredient.amount * reduceRatio; // 비율에 따른 변환
     resultHTML += `<p>${ingredient.name}: ${newAmount.toFixed(2)}</p>`;
+  });
+
+  resultDiv.innerHTML = resultHTML; // 결과 출력
+});
+
+
+// ** 재료 추가 기능 **
+addIngredientButton.addEventListener('click', () => {
+  const newGroup = document.createElement('div');
+  newGroup.className = 'input-group';
+  newGroup.innerHTML = `
+    <input type="text" placeholder="재료명 (예: 밀가루)" class="ingredient-name">
+    <input type="text" placeholder="양 (예: 100g, 200ml)" class="ingredient-amount">
+    <button class="delete-btn">❌</button>
+  `;
+  ingredientsList.appendChild(newGroup);
+
+  newGroup.querySelector('.delete-btn').addEventListener('click', () => {
+    newGroup.remove(); // 재료 삭제
+  });
+});
+
+// ** 레시피 계산 기능 **
+calculateButton.addEventListener('click', () => {
+  const reduceRatio = parseFloat(document.getElementById('reduce-ratio').value); // 비율 가져오기
+  const ingredients = Array.from(ingredientsList.querySelectorAll('.input-group')).map(group => {
+    const name = group.querySelector('.ingredient-name').value.trim(); // 재료명 가져오기
+    const amountText = group.querySelector('.ingredient-amount').value.trim(); // 양 가져오기 (예: 100g, 200ml)
+    const amount = parseFloat(amountText.replace(/[^0-9.]/g, '')); // 숫자만 추출
+    const unit = amountText.replace(/[0-9.]/g, '').trim(); // 단위 추출 (g, ml 등)
+
+    return { name, amount, unit };
+  }).filter(ingredient => ingredient.name && !isNaN(ingredient.amount)); // 유효성 검사
+
+  if (ingredients.length === 0) {
+    resultDiv.innerHTML = '<p>재료를 입력해 주세요!</p>';
+    return;
+  }
+
+  // 결과 HTML 생성
+  let resultHTML = '<h3>변환된 레시피</h3>';
+  ingredients.forEach(ingredient => {
+    const newAmount = (ingredient.amount * reduceRatio).toFixed(1); // 소수점 1자리까지 표시
+    resultHTML += `<p>${ingredient.name}: ${newAmount}${ingredient.unit}</p>`;
   });
 
   resultDiv.innerHTML = resultHTML; // 결과 출력
