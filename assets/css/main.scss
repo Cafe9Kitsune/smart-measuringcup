@@ -75,7 +75,6 @@ body {
   border-radius: 8px;
   &__recipe {
     @extend .c-select;
-    // color: $color_txt_hold;
     font-weight: bold;
     color: $color_pt_sub;
     background-color: $color_wh;
