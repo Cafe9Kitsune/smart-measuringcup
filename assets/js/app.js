@@ -182,7 +182,7 @@ calculateButton.addEventListener("click", () => {
       displayAmount = newAmount.toFixed(1);
     }
 
-    resultHTML += `<p>${ingredient.name}: ${displayAmount}${ingredient.unit}</p>`;
+    resultHTML += `<p class="item"><span class="name">${ingredient.name}</span><span class="amount">${displayAmount}${ingredient.unit}</span></p>`;
   });
 
   resultModalContent.innerHTML = resultHTML;
