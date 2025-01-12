@@ -86,45 +86,63 @@
             <button class="c-btn__save" id="save-btn">저장하기</button>
           </div>
         </div>
-
-        <div class="result" id="calculated-result"></div>
       </div>
       <!-- MODAL : Add -->
-      <div id="modalAdd" class="modal-add" style="display: none">
-        <div class="modal-content">
-          <h2>새 레시피 추가</h2>
-          <label for="recipe-name">레시피 이름:</label>
-          <input type="text" id="recipe-name" placeholder="새 레시피 이름 입력" />
-          <h3>재료 입력</h3>
-          <div id="modal-ingredients-list">
-            <div class="input-group">
-              <input type="text" placeholder="재료명" class="modal-ingredient-name" />
-              <input type="text" placeholder="양 (g, ml 등)" class="modal-ingredient-amount" />
-              <button class="delete-btn">❌</button>
+      <div id="modalAdd" class="modal-wrap">
+        <div class="modal-container">
+          <h2>💾 레시피를 저장해보세요!</h2>
+          <h4>저장해 둔 레시피는 이 브러우저에서만 사용할 수 있어요.</h4>
+          <input type="text" class="c-input__recipe" id="recipe-name" placeholder="레시피 이름을 입력하세요" />
+          <div class="modal-whbox">
+            <div class="p-main__item">
+              <div class="p-main__item-header">
+                <div>재료명</div>
+                <div>
+                  양
+                  <span class="c-icon__info"></span>
+                  <span>숫자만 입력해도 됩니다</span>
+                </div>
+              </div>
+              <div class="p-main__item-wrap" id="modal-ingredients-list">
+                <div class="p-main__item-input">
+                  <input type="text" placeholder="밀가루" class="c-input__item name" />
+                  <input type="text" placeholder="100g" class="c-input__item amount" />
+                  <button class="c-btn__delete"></button>
+                </div>
+                <div class="p-main__item-input">
+                  <input type="text" placeholder="우유" class="c-input__item name" />
+                  <input type="text" placeholder="100ml" class="c-input__item amount" />
+                  <button class="c-btn__delete"></button>
+                </div>
+                <div class="p-main__item-input">
+                  <input type="text" placeholder="설탕" class="c-input__item name" />
+                  <input type="text" placeholder="100g" class="c-input__item amount" />
+                  <button class="c-btn__delete"></button>
+                </div>
+                <div class="p-main__item-input">
+                  <input type="text" placeholder="계란" class="c-input__item name" />
+                  <input type="text" placeholder="100g" class="c-input__item amount" />
+                  <button class="c-btn__delete"></button>
+                </div>
+              </div>
             </div>
+            <button class="p-main__item-addbtn" id="modal-add-ingredient"><span class="c-btn__add"></span>재료 추가하기</button>
           </div>
-          <button class="add-btn" id="modal-add-ingredient">+ 재료 추가</button>
-          <button class="save-btn" id="save-new-recipe">저장</button>
-          <button class="close-btn" id="close-modal">닫기</button>
+          <div class="c-btn-wrap-full">
+            <button class="c-btn__save" id="save-new-recipe">저장하기</button>
+            <button class="c-btn__close" id="close-recipe-modal">닫기</button>
+          </div>
         </div>
       </div>
       <!-- MODAL : Result -->
-      <div id="modalResult" class="modal-result" style="display: none">
-        <div class="modal-content">
-          <h2>새 레시피 추가</h2>
-          <label for="recipe-name">레시피 이름:</label>
-          <input type="text" id="recipe-name" placeholder="새 레시피 이름 입력" />
-          <h3>재료 입력</h3>
-          <div id="modal-ingredients-list">
-            <div class="input-group">
-              <input type="text" placeholder="재료명" class="modal-ingredient-name" />
-              <input type="text" placeholder="양 (g, ml 등)" class="modal-ingredient-amount" />
-              <button class="delete-btn">❌</button>
-            </div>
+      <div id="modalResult" class="modal-wrap">
+        <div class="modal-container">
+          <h2>🍳 재료를 1/2로 줄였어요!</h2>
+          <h4>그럼 이제 재료 준비 시작해볼까요?</h4>
+          <div class="modal-whbox" id="calculated-result"></div>
+          <div class="c-btn-wrap-full">
+            <button class="c-btn__close" id="close-result-modal">닫기</button>
           </div>
-          <button class="add-btn" id="modal-add-ingredient">+ 재료 추가</button>
-          <button class="save-btn" id="save-new-recipe">저장</button>
-          <button class="close-btn" id="close-modal">닫기</button>
         </div>
       </div>
     </div>

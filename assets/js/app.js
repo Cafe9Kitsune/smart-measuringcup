@@ -8,15 +8,20 @@ const resultDiv = document.getElementById("calculated-result");
 
 // 모달 관련 요소 가져오기
 const openModalButton = document.getElementById("open-modal");
-const closeModalButton = document.getElementById("close-modal");
-const recipeModal = document.getElementById("modalResult");
+const closeModalButton = document.getElementById("close-recipe-modal");
+const recipeModal = document.getElementById("modalAdd");
+const resultModal = document.getElementById("modalResult");
 const modalIngredientsList = document.getElementById("modal-ingredients-list");
 const modalAddIngredientButton = document.getElementById("modal-add-ingredient");
 const recipeNameInput = document.getElementById("recipe-name");
 
 // ** 모달 열기/닫기 기능 **
+calculateButton.addEventListener("click", () => {
+  resultModal.style.display = "block";
+});
+
 openModalButton.addEventListener("click", () => {
-  recipeModal.style.display = "flex";
+  recipeModal.style.display = "block";
 });
 closeModalButton.addEventListener("click", () => {
   recipeModal.style.display = "none";
@@ -27,8 +32,8 @@ modalAddIngredientButton.addEventListener("click", () => {
   const newGroup = document.createElement("div");
   newGroup.className = "p-main__item-input";
   newGroup.innerHTML = `
-    <input type="text" placeholder="재료명" class="c-input__item name">
-    <input type="text" placeholder="양 (g, ml 등)" class="c-input__item amount">
+    <input type="text" placeholder="" class="c-input__item name">
+    <input type="text" placeholder="" class="c-input__item amount">
     <button class="c-btn__delete"></button>
   `;
   modalIngredientsList.appendChild(newGroup);
@@ -112,8 +117,8 @@ addIngredientButton.addEventListener("click", () => {
   const newGroup = document.createElement("div");
   newGroup.className = "p-main__item-input";
   newGroup.innerHTML = `
-    <input type="text" placeholder="재료명 (예: 밀가루)" class="c-input__item name">
-    <input type="text" placeholder="양 (예: 100g, 200ml)" class="c-input__item amount">
+    <input type="text" placeholder="" class="c-input__item name">
+    <input type="text" placeholder="" class="c-input__item amount">
     <button class="c-btn__delete"></button>
   `;
   ingredientsList.appendChild(newGroup);
@@ -143,7 +148,6 @@ calculateButton.addEventListener("click", () => {
   }
 
   // 결과 HTML 생성
-  let resultHTML = "<h3>변환된 레시피</h3>";
   ingredients.forEach((ingredient) => {
     const newAmount = ingredient.amount * reduceRatio; // 계산 결과
     const displayAmount = Number.isInteger(newAmount) ? newAmount : newAmount.toFixed(1); // 정수 여부에 따라 소수점 처리

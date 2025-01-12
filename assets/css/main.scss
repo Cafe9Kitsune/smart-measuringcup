@@ -93,11 +93,11 @@ i {
   border: none;
   border-radius: 12px;
   height: 45px;
+  cursor: pointer;
   &__save {
     @extend .c-btn, .u-gradation;
     color: $color_wh;
     transition: opacity 0.2s ease;
-    cursor: pointer;
     &:hover {
       opacity: 0.8;
     }
@@ -106,6 +106,13 @@ i {
     @extend .c-btn;
     background-color: $color_wh;
     color: $color_pt;
+    border: 1px solid $color_pt;
+    transition: color 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
+    &:hover {
+      background-color: $color_pt;
+      color: $color_wh;
+      opacity: 0.8;
+    }
   }
   &__delete {
     margin: auto;
@@ -229,7 +236,7 @@ i {
     }
     &-input {
       display: grid;
-      grid-template-columns: 5fr 4fr 1fr;
+      grid-template-columns: 5fr 4.5fr 0.5fr;
       gap: 10px;
     }
     &-addbtn {
@@ -258,6 +265,45 @@ i {
     .txt {
       font-weight: bold;
     }
+  }
+}
+
+// modal
+.modal {
+  &-wrap {
+    z-index: 1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba($color_blk, 0.7);
+    // opacity: 0;
+    // visibility: hidden;
+    display: none;
+    h4 {
+      margin-bottom: 20px;
+    }
+  }
+  &-container {
+    position: fixed;
+    background-color: $color_gray;
+    border-radius: 16px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 90vw;
+    margin: 10px auto;
+    padding: clamp(20px, 4vw, 35px);
+    @include breakpoint(md) {
+      width: 500px;
+    }
+  }
+  &-whbox {
+    border-radius: 8px;
+    background-color: $color_wh;
+    padding: 20px;
+    margin: 20px auto;
   }
 }
 

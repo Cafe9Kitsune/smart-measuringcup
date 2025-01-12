@@ -137,6 +137,7 @@ i {
   border: none;
   border-radius: 12px;
   height: 45px;
+  cursor: pointer;
 }
 .c-btn-wrap-full {
   width: 100%;
@@ -153,7 +154,6 @@ i {
 .c-btn__save {
   color: #fff;
   transition: opacity 0.2s ease;
-  cursor: pointer;
 }
 .c-btn__save:hover {
   opacity: 0.8;
@@ -161,6 +161,13 @@ i {
 .c-btn__close {
   background-color: #fff;
   color: #ff6700;
+  border: 1px solid #ff6700;
+  transition: color 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
+}
+.c-btn__close:hover {
+  background-color: #ff6700;
+  color: #fff;
+  opacity: 0.8;
 }
 .c-btn__delete {
   margin: auto;
@@ -277,7 +284,7 @@ i {
 }
 .p-main__item-input {
   display: grid;
-  grid-template-columns: 5fr 4fr 1fr;
+  grid-template-columns: 5fr 4.5fr 0.5fr;
   gap: 10px;
 }
 .p-main__item-addbtn {
@@ -304,6 +311,42 @@ i {
 }
 .p-main__saveform .txt {
   font-weight: bold;
+}
+
+.modal-wrap {
+  z-index: 1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: rgba(51, 51, 51, 0.7);
+  display: none;
+}
+.modal-wrap h4 {
+  margin-bottom: 20px;
+}
+.modal-container {
+  position: fixed;
+  background-color: #f9f6f4;
+  border-radius: 16px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 90vw;
+  margin: 10px auto;
+  padding: clamp(20px, 4vw, 35px);
+}
+@media only screen and (min-width: 768px) {
+  .modal-container {
+    width: 500px;
+  }
+}
+.modal-whbox {
+  border-radius: 8px;
+  background-color: #fff;
+  padding: 20px;
+  margin: 20px auto;
 }
 
 .u-inner {
