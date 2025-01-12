@@ -29,9 +29,14 @@ body {
 select,
 input {
   border-radius: 8px;
+  transition: box-shadow 0.15s ease;
   &:focus {
     border-radius: 8px;
-    box-shadow: 0 0 4px rgba($color_pt, 1);
+    box-shadow: 0 0 4px rgba($color_pt, 0.7);
+  }
+  &:hover {
+    box-shadow: 0 0 4px rgba($color_pt, 0.4);
+    caret-color: #333 !important;
   }
 }
 
@@ -74,7 +79,7 @@ i {
 .c-btn {
   &-wrap-full {
     width: 100%;
-    margin: 20px auto;
+    margin: 15px auto;
     display: flex;
     flex-direction: column;
     gap: 5px;
@@ -122,7 +127,6 @@ i {
 }
 
 .c-select {
-  height: 40px;
   padding: 0 20px;
   border-radius: 8px;
   &__recipe {
@@ -135,10 +139,10 @@ i {
     background-size: 20px;
   }
   &__rate {
-    @extend .c-select;
+    @extend .c-select, .u-icon__arw-line;
+    height: 40px;
     background-color: $color_gray;
     letter-spacing: 5px;
-    @extend .u-icon__arw-line;
     background-position: right 10px center;
     background-size: 10px;
   }
@@ -159,6 +163,7 @@ i {
     background-color: $color_wh;
     text-align: center;
     font-weight: bold;
+    height: 45px;
     &::placeholder {
       color: $color_txt_hold !important;
     }
@@ -169,7 +174,7 @@ i {
   background-color: $color_gray;
   padding: 20px;
   border-radius: 8px;
-  margin: 28px auto;
+  margin: 20px auto;
 }
 
 // page
@@ -177,10 +182,10 @@ i {
   background-color: $color_wh;
   @include breakpoint(md) {
     max-width: 600px;
-    margin: 3rem auto 1rem;
+    margin: 30px auto;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba($color_pt, 0.1);
   }
 
   h4 {
@@ -189,7 +194,7 @@ i {
   }
 
   &__rate {
-    margin: 20px auto;
+    margin: 15px auto;
     font-weight: bold;
     gap: 10px;
     display: flex;
@@ -220,7 +225,7 @@ i {
       display: flex;
       flex-direction: column;
       gap: 10px;
-      margin: 5px auto 20px;
+      margin: 5px auto 10px;
     }
     &-input {
       display: grid;

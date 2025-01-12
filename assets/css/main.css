@@ -32,7 +32,6 @@ html:focus-within {
 
 /* Set core body defaults */
 body {
-  min-height: 100vh;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
 }
@@ -87,11 +86,17 @@ body {
 select,
 input {
   border-radius: 8px;
+  transition: box-shadow 0.15s ease;
 }
 select:focus,
 input:focus {
   border-radius: 8px;
-  box-shadow: 0 0 4px #ff6700;
+  box-shadow: 0 0 4px rgba(255, 103, 0, 0.7);
+}
+select:hover,
+input:hover {
+  box-shadow: 0 0 4px rgba(255, 103, 0, 0.4);
+  caret-color: #333 !important;
 }
 
 select {
@@ -135,7 +140,7 @@ i {
 }
 .c-btn-wrap-full {
   width: 100%;
-  margin: 20px auto;
+  margin: 15px auto;
   display: flex;
   flex-direction: column;
   gap: 5px;
@@ -174,7 +179,6 @@ i {
 }
 
 .c-select, .c-select__rate, .c-select__recipe {
-  height: 40px;
   padding: 0 20px;
   border-radius: 8px;
 }
@@ -186,6 +190,7 @@ i {
   background-size: 20px;
 }
 .c-select__rate {
+  height: 40px;
   background-color: #f9f6f4;
   letter-spacing: 5px;
   background-position: right 10px center;
@@ -206,6 +211,7 @@ i {
   background-color: #fff;
   text-align: center;
   font-weight: bold;
+  height: 45px;
 }
 .c-input__recipe::-moz-placeholder {
   color: #eaac6e !important;
@@ -218,7 +224,7 @@ i {
   background-color: #f9f6f4;
   padding: 20px;
   border-radius: 8px;
-  margin: 28px auto;
+  margin: 20px auto;
 }
 
 .p-main {
@@ -227,10 +233,10 @@ i {
 @media only screen and (min-width: 768px) {
   .p-main {
     max-width: 600px;
-    margin: 3rem auto 1rem;
+    margin: 30px auto;
     padding: 20px;
     border-radius: 10px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    box-shadow: 0 0 10px rgba(255, 103, 0, 0.1);
   }
 }
 .p-main h4 {
@@ -238,7 +244,7 @@ i {
   color: #757575;
 }
 .p-main__rate {
-  margin: 20px auto;
+  margin: 15px auto;
   font-weight: bold;
   gap: 10px;
   display: flex;
@@ -267,7 +273,7 @@ i {
   display: flex;
   flex-direction: column;
   gap: 10px;
-  margin: 5px auto 20px;
+  margin: 5px auto 10px;
 }
 .p-main__item-input {
   display: grid;
