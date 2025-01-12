@@ -1,102 +1,230 @@
-body {
-  font-family: "Arial", sans-serif;
-  padding: 20px;
-  background-color: #f9f9f9;
+/* Box sizing rules */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-.container {
-  max-width: 600px;
-  margin: auto;
-  background-color: white;
-  padding: 20px;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
-
-.header {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
-
-.divider {
-  height: 2px;
-  background-color: #ddd;
-  margin: 20px 0;
-}
-
+/* Remove default margin */
+body,
 h1,
-h3 {
-  text-align: center;
+h2,
+h3,
+h4,
+p,
+figure,
+blockquote,
+dl,
+dd {
+  margin: 0;
 }
 
-.input-group {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin: 10px 0;
+/* Remove list styles on ul, ol elements with a list role, which suggests default styling will be removed */
+ul[role=list],
+ol[role=list] {
+  list-style: none;
 }
 
-.input-group input {
-  width: 70%;
-  padding: 10px;
-  border: 1px solid #ddd;
-  border-radius: 5px;
+/* Set core root defaults */
+html:focus-within {
+  scroll-behavior: smooth;
 }
 
-.input-group button {
-  background-color: #ff6b6b;
-  border: none;
-  color: white;
-  padding: 5px 10px;
-  border-radius: 5px;
-  cursor: pointer;
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
 }
 
-.input-group button:hover {
-  background-color: #ff4b4b;
+/* A elements that don't have a class get default styles */
+a:not([class]) {
+  -webkit-text-decoration-skip: ink;
+          text-decoration-skip-ink: auto;
 }
 
-.add-btn,
-.save-btn,
-.calculate-btn {
-  display: flex;
-  justify-content: center;
-  padding: 10px;
-  margin-top: 10px;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
+/* Make images easier to work with */
+img,
+picture {
+  max-width: 100%;
+  display: block;
 }
 
-.add-btn {
-  background-color: #4caf50;
-  color: white;
-}
-
-.save-btn {
-  background-color: #007bff;
-  color: white;
-}
-
-.calculate-btn {
-  background-color: #333;
-  color: white;
-}
-
-.calculate-btn:hover {
-  background-color: #555;
-}
-
-.result {
-  margin-top: 20px;
-  background-color: #f1f1f1;
-  padding: 10px;
-  border-radius: 5px;
-}
-
+/* Inherit fonts for inputs and buttons */
+input,
+button,
+textarea,
 select {
+  font: inherit;
+  border: none;
+  background: none;
+  outline: none;
+}
+input:focus,
+button:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+  border: none;
+}
+
+/* Remove all animations and transitions for people that prefer not to see them */
+@media (prefers-reduced-motion: reduce) {
+  html:focus-within {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+.u-gradation, .c-btn__save {
+  background: linear-gradient(to right, #ff6700, #ff9832);
+}
+
+select,
+input {
+  border-radius: 8px;
+}
+select:focus,
+input:focus {
+  border-radius: 8px;
+  box-shadow: 0 0 4px #ff6700;
+}
+
+body {
+  background-color: #fff;
+  font-family: sans-serif;
+  color: #333;
+  font-size: 16px;
+}
+@media only screen and (min-width: 768px) {
+  body {
+    background-color: #f9f6f4;
+  }
+}
+
+.c-btn, .c-btn__close, .c-btn__save {
   width: 100%;
-  padding: 10px;
-  margin-bottom: 10px;
+  border: none;
+  border-radius: 12px;
+  height: 45px;
+}
+.c-btn-wrap-full {
+  width: 100%;
+  margin: 20px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+.c-btn-wrap-col2 {
+  display: grid;
+  grid-template-columns: 6fr 4fr;
+  gap: 15px;
+}
+.c-btn__save {
+  color: #fff;
+}
+.c-btn__close {
+  background-color: #fff;
+  color: #ff6700;
+}
+.c-btn__delete {
+  margin: auto;
+  width: 13px;
+  height: 13px;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path d="M1 1L9 9M9 1L1 9" stroke="%23F5F5F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 1L9 9M9 1L1 9" stroke="%23EAAC6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.c-select, .c-select__rate, .c-select__recipe {
+  height: 40px;
+  padding: 0 20px;
+  border-radius: 8px;
+}
+.c-select__recipe {
+  font-weight: bold;
+  color: #ff9832;
+  background-color: #fff;
+}
+.c-select__rate {
+  background-color: #f9f6f4;
+}
+
+.c-input, .c-input__recipe, .c-input__item {
+  width: 100%;
+  height: 40px;
+  padding: 16px 20px;
+  border: none;
+  border-radius: 8px;
+}
+.c-input__item {
+  background-color: #f9f6f4;
+}
+.c-input__recipe {
+  background-color: #eaac6e;
+}
+
+.p-main {
+  background-color: #fff;
+}
+@media only screen and (min-width: 768px) {
+  .p-main {
+    max-width: 600px;
+    margin: 3rem auto 1rem;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+}
+.p-main h4 {
+  font-weight: normal;
+  color: #757575;
+}
+.p-main__select-wrap {
+  background-color: #f9f6f4;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 28px auto;
+}
+.p-main__rate {
+  margin: 20px auto;
+  font-weight: bold;
+}
+.p-main__item-header {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  font-weight: bold;
+}
+.p-main__item-header span {
+  font-weight: normal;
+  color: #eaac6e;
+  font-size: 13px;
+}
+.p-main__item-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 5px auto 20px;
+}
+.p-main__item-input {
+  display: grid;
+  grid-template-columns: 5fr 4fr 1fr;
+  gap: 10px;
+}
+
+.u-inner {
+  width: 90%;
+  margin: 20px auto;
+}
+
+i {
+  text-decoration: none !important;
+  font-style: normal !important;
+  display: inline-block;
 }/*# sourceMappingURL=main.css.map */
