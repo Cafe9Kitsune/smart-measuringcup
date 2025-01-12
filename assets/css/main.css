@@ -30,6 +30,11 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
+html,
+:host {
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+}
+
 /* Set core body defaults */
 body {
   text-rendering: optimizeSpeed;
@@ -73,7 +78,6 @@ select:focus {
 /* Remove all animations and transitions for people that prefer not to see them */
 body {
   background-color: #fff;
-  font-family: sans-serif;
   color: #333;
   font-size: 16px;
 }

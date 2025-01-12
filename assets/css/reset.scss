@@ -30,6 +30,11 @@ html:focus-within {
   scroll-behavior: smooth;
 }
 
+html,
+:host {
+  font-family: "Pretendard Variable", Pretendard, sans-serif;
+}
+
 /* Set core body defaults */
 body {
   // min-height: 100vh;

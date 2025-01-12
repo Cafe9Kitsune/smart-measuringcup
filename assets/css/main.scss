@@ -21,7 +21,6 @@ body {
   @include breakpoint(md) {
     background-color: $color_gray;
   }
-  font-family: sans-serif;
   color: $color_blk;
   font-size: 16px;
 }
