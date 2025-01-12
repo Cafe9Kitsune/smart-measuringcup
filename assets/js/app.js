@@ -69,7 +69,6 @@ saveNewRecipeButton.addEventListener("click", () => {
 
 // ** 레시피 목록 업데이트 함수 **
 function updateRecipeList() {
-  recipeSelect.innerHTML = '<option value="">저장된 레시피를 선택하세요</option>';
   const savedRecipes = JSON.parse(localStorage.getItem("recipes")) || {};
 
   for (const recipeName in savedRecipes) {

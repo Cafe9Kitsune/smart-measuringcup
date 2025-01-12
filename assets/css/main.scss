@@ -9,8 +9,21 @@ $color_gray: #f9f6f4;
 $color_txt_hold: #eaac6e;
 $color_txt_sub: #757575;
 
-.u-gradation {
-  background: linear-gradient(to right, $color_pt, $color_pt_sub);
+$icon_add: url("data:image/svg+xml;charset=UTF-8,%3Csvg width%3D%2232%22 height%3D%2233%22 viewBox%3D%220 0 32 33%22 fill%3D%22none%22 xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath d%3D%22M0 16.5C0 7.66344 7.16344 0.5 16 0.5C24.8366 0.5 32 7.66344 32 16.5C32 25.3366 24.8366 32.5 16 32.5C7.16344 32.5 0 25.3366 0 16.5Z%22 fill%3D%22url(%23paint0_linear_6_417)%22/%3E%3Cpath d%3D%22M16.0001 10.6667V22.3334M10.1667 16.5H21.8334%22 stroke%3D%22%23F5F5F5%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22/%3E%3Cdefs%3E%3ClinearGradient id%3D%22paint0_linear_6_417%22 x1%3D%22-1.19084e-07%22 y1%3D%2216.626%22 x2%3D%2232%22 y2%3D%2216.626%22 gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop stop-color%3D%22%23FF6700%22/%3E%3Cstop offset%3D%221%22 stop-color%3D%22%23FF9832%22/%3E%3C/linearGradient%3E%3C/defs%3E%3C/svg%3E");
+$icon_check: url("data:image/svg+xml;charset=UTF-8,%3Csvg width%3D%2224%22 height%3D%2222%22 viewBox%3D%220 0 24 22%22 fill%3D%22none%22 xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath d%3D%22M0.072998 11C0.072998 4.92487 4.99787 0 11.073 0H12.187C18.2621 0 23.187 4.92487 23.187 11C23.187 17.0751 18.2621 22 12.187 22H11.073C4.99786 22 0.072998 17.0751 0.072998 11Z%22 fill%3D%22%23FF6700%22/%3E%3Cpath d%3D%22M18.2965 6L9.1298 15.1667L4.96313 11%22 stroke%3D%22%23F5F5F5%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22/%3E%3C/svg%3E");
+$icon_delete: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path d="M1 1L9 9M9 1L1 9" stroke="%23F5F5F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 1L9 9M9 1L1 9" stroke="%23EAAC6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
+$icon_info: url("data:image/svg+xml;charset=UTF-8,%3Csvg width%3D%2215%22 height%3D%2215%22 viewBox%3D%220 0 15 15%22 fill%3D%22none%22 xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg clip-path%3D%22url(%23clip0_6_408)%22%3E%3Cpath d%3D%22M0 7.5C0 3.35786 3.35786 0 7.5 0C11.6421 0 15 3.35786 15 7.5C15 11.6421 11.6421 15 7.5 15C3.35786 15 0 11.6421 0 7.5Z%22 fill%3D%22%23EAAC6E%22/%3E%3Cpath d%3D%22M7.49984 10.8333V7.49999M7.49984 4.16666H7.50817M15.8332 7.49999C15.8332 12.1024 12.1022 15.8333 7.49984 15.8333C2.89746 15.8333 -0.833496 12.1024 -0.833496 7.49999C-0.833496 2.89762 2.89746 -0.833344 7.49984 -0.833344C12.1022 -0.833344 15.8332 2.89762 15.8332 7.49999Z%22 stroke%3D%22white%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22/%3E%3C/g%3E%3Cdefs%3E%3CclipPath id%3D%22clip0_6_408%22%3E%3Cpath d%3D%22M0 7.5C0 3.35786 3.35786 0 7.5 0C11.6421 0 15 3.35786 15 7.5C15 11.6421 11.6421 15 7.5 15C3.35786 15 0 11.6421 0 7.5Z%22 fill%3D%22white%22/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+$icon_arw-line: url("data:image/svg+xml;charset=UTF-8,%3Csvg width%3D%2210%22 height%3D%227%22 viewBox%3D%220 0 10 7%22 fill%3D%22none%22 xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath d%3D%22M1 1.5L5 5.5L9 1.5%22 stroke%3D%22%23EAAC6E%22 stroke-width%3D%221.6%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22/%3E%3C/svg%3E");
+$icon_arw-circle: url("data:image/svg+xml;charset=UTF-8,%3Csvg width%3D%2220%22 height%3D%2219%22 viewBox%3D%220 0 20 19%22 fill%3D%22none%22 xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg clip-path%3D%22url(%23clip0_6_382)%22%3E%3Cpath d%3D%22M0.145996 9.5C0.145996 4.25329 4.39929 0 9.646 0C14.8927 0 19.146 4.25329 19.146 9.5C19.146 14.7467 14.8927 19 9.646 19C4.39929 19 0.145996 14.7467 0.145996 9.5Z%22 fill%3D%22url(%23paint0_linear_6_382)%22/%3E%3Cpath d%3D%22M4.646 7L9.646 12L14.646 7%22 stroke%3D%22%23F5F5F5%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22/%3E%3C/g%3E%3Cdefs%3E%3ClinearGradient id%3D%22paint0_linear_6_382%22 x1%3D%220.145996%22 y1%3D%229.5748%22 x2%3D%2219.146%22 y2%3D%229.5748%22 gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop stop-color%3D%22%23FF6700%22/%3E%3Cstop offset%3D%221%22 stop-color%3D%22%23FF9832%22/%3E%3C/linearGradient%3E%3CclipPath id%3D%22clip0_6_382%22%3E%3Cpath d%3D%22M0.145996 9.5C0.145996 4.25329 4.39929 0 9.646 0C14.8927 0 19.146 4.25329 19.146 9.5C19.146 14.7467 14.8927 19 9.646 19C4.39929 19 0.145996 14.7467 0.145996 9.5Z%22 fill%3D%22white%22/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
+
+body {
+  background-color: $color_wh;
+  @include breakpoint(md) {
+    background-color: $color_gray;
+  }
+  font-family: sans-serif;
+  color: $color_blk;
+  font-size: 16px;
 }
 
 select,
@@ -22,14 +35,40 @@ input {
   }
 }
 
-body {
-  background-color: $color_wh;
-  @include breakpoint(md) {
-    background-color: $color_gray;
+select {
+  cursor: pointer;
+}
+
+input::placeholder {
+  color: #999;
+  // font-weight: normal;
+}
+
+i {
+  text-decoration: none !important;
+  font-style: normal !important;
+  display: inline-block;
+}
+
+// component
+
+.c-icon {
+  &__info {
+    @extend .u-icon__info;
+    background-position: center;
+    background-size: 16px;
+    width: 16px;
+    height: 16px;
+    display: inline-block;
   }
-  font-family: sans-serif;
-  color: $color_blk;
-  font-size: 16px;
+  &__check {
+    @extend .u-icon__check;
+    background-position: center;
+    background-size: 20px;
+    width: 20px;
+    height: 20px;
+    display: inline-block;
+  }
 }
 
 .c-btn {
@@ -50,9 +89,13 @@ body {
   border-radius: 12px;
   height: 45px;
   &__save {
-    @extend .c-btn;
-    @extend .u-gradation;
+    @extend .c-btn, .u-gradation;
     color: $color_wh;
+    transition: opacity 0.2s ease;
+    cursor: pointer;
+    &:hover {
+      opacity: 0.8;
+    }
   }
   &__close {
     @extend .c-btn;
@@ -61,11 +104,20 @@ body {
   }
   &__delete {
     margin: auto;
-    width: 13px;
-    height: 13px;
-    background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 10 10"><path d="M1 1L9 9M9 1L1 9" stroke="%23F5F5F5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M1 1L9 9M9 1L1 9" stroke="%23EAAC6E" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>');
-    background-repeat: no-repeat;
-    background-size: contain;
+    width: 100%;
+    height: 100%;
+    @extend .u-icon__delete;
+    background-size: 15px 15px !important;
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    cursor: pointer;
+  }
+  &__add {
+    @extend .c-btn, .u-icon__add;
+    width: 33px;
+    height: 33px;
+    display: inline-block;
+    background-position: center;
   }
 }
 
@@ -78,10 +130,17 @@ body {
     font-weight: bold;
     color: $color_pt_sub;
     background-color: $color_wh;
+    @extend .u-icon__arw-circle;
+    background-position: right 15px center;
+    background-size: 20px;
   }
   &__rate {
     @extend .c-select;
     background-color: $color_gray;
+    letter-spacing: 5px;
+    @extend .u-icon__arw-line;
+    background-position: right 10px center;
+    background-size: 10px;
   }
 }
 
@@ -97,10 +156,23 @@ body {
   }
   &__recipe {
     @extend .c-input;
-    background-color: $color_txt_hold;
+    background-color: $color_wh;
+    text-align: center;
+    font-weight: bold;
+    &::placeholder {
+      color: $color_txt_hold !important;
+    }
   }
 }
 
+.c-wrap-gray {
+  background-color: $color_gray;
+  padding: 20px;
+  border-radius: 8px;
+  margin: 28px auto;
+}
+
+// page
 .p-main {
   background-color: $color_wh;
   @include breakpoint(md) {
@@ -116,18 +188,13 @@ body {
     color: $color_txt_sub;
   }
 
-  &__select {
-    &-wrap {
-      background-color: $color_gray;
-      padding: 20px;
-      border-radius: 8px;
-      margin: 28px auto;
-    }
-  }
-
   &__rate {
     margin: 20px auto;
     font-weight: bold;
+    gap: 10px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
   }
 
   &__item {
@@ -135,10 +202,18 @@ body {
       display: grid;
       grid-template-columns: 1fr 1fr;
       font-weight: bold;
-      span {
-        font-weight: normal;
-        color: $color_txt_hold;
-        font-size: 13px;
+      & > div {
+        display: flex;
+        align-items: center;
+        .c-icon__info {
+          margin-left: 5px;
+          padding-left: 25px;
+        }
+        span {
+          font-weight: normal;
+          color: $color_txt_hold;
+          font-size: 13px;
+        }
       }
     }
     &-wrap {
@@ -152,16 +227,79 @@ body {
       grid-template-columns: 5fr 4fr 1fr;
       gap: 10px;
     }
+    &-addbtn {
+      display: flex;
+      flex-direction: row;
+      gap: 10px;
+      align-items: center;
+      height: 40px;
+      transition: color 0.2s ease;
+      cursor: pointer;
+      color: $color_pt;
+      &:hover {
+        // opacity: 0.7;
+        color: $color_pt_sub;
+        .c-btn__add {
+          opacity: 0.8;
+          transition: opacity 0.2s ease;
+        }
+      }
+    }
+  }
+  &__saveform {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    .txt {
+      font-weight: bold;
+    }
   }
 }
 
+// util
 .u-inner {
   width: 90%;
   margin: 20px auto;
 }
 
-i {
-  text-decoration: none !important;
-  font-style: normal !important;
-  display: inline-block;
+.u-gradation {
+  background: linear-gradient(to right, $color_pt, $color_pt_sub);
+}
+
+.u-icon {
+  background-repeat: no-repeat;
+  &__delete {
+    background: $icon_delete;
+  }
+  &__info {
+    @extend .u-icon;
+    background-image: $icon_info;
+  }
+  &__check {
+    @extend .u-icon;
+    background-image: $icon_check;
+  }
+  &__add {
+    @extend .u-icon;
+    background-image: $icon_add;
+  }
+  &__arw {
+    &-line {
+      background-image: $icon_arw-line;
+      background-repeat: no-repeat;
+    }
+    &-circle {
+      background-image: $icon_arw-circle;
+      background-repeat: no-repeat;
+    }
+  }
+}
+
+.u-flex {
+  &-row {
+    display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: center;
+  }
 }

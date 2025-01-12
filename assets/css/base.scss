@@ -32,11 +32,3 @@ $grid-gutter: 16px !default;
   background-color: $color;
   background-color: rgba($color, $alpha);
 }
-
-// Animations
-// Example: .fade { @mixin animate(1s); }
-// Output: .fade { animation-duration: 1s; animation-fill-mode: both; }
-@mixin animate($duration: 1s) {
-  animation-duration: $duration;
-  animation-fill-mode: both;
-}

@@ -59,6 +59,9 @@ select {
   border: none;
   background: none;
   outline: none;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
 }
 input:focus,
 button:focus,
@@ -68,17 +71,4 @@ select:focus {
   border: none;
 }
 
-/* Remove all animations and transitions for people that prefer not to see them */
-@media (prefers-reduced-motion: reduce) {
-  html:focus-within {
-    scroll-behavior: auto;
-  }
-  *,
-  *::before,
-  *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-}/*# sourceMappingURL=reset.css.map */
+/* Remove all animations and transitions for people that prefer not to see them *//*# sourceMappingURL=reset.css.map */
