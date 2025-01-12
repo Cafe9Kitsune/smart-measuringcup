@@ -43,6 +43,11 @@ function handleDeleteButton(button, ingredientList) {
   });
 }
 
+// ** 새 레시피 모달의 재료 추가 기능 **
+modalAddIngredientButton.addEventListener("click", () => {
+  handleIngredient(modalIngredientsList); // 모달 내 재료 추가 함수 호출
+});
+
 // ** 공통된 재료 추가 및 삭제 함수 **
 function handleIngredient(ingredientList) {
   const newGroup = document.createElement("div");
