@@ -186,6 +186,13 @@ calculateButton.addEventListener("click", () => {
   });
 
   resultModalContent.innerHTML = resultHTML;
+
+  // 모달의 "1/2" 부분을 계산된 비율로 바꾸기
+  const ratioText = reduceRatio === 0.5 ? "1/2" : reduceRatio === 0.33 ? "1/3" : reduceRatio === 0.25 ? "1/4" : `${reduceRatio * 100}%`;
+
+  const ratioMessage = document.querySelector("#modalResult h2");
+  ratioMessage.innerHTML = `🍳 재료를 ${ratioText}로 줄였어요!`;
+
   resultModal.style.display = "block";
 });
 
