@@ -59,9 +59,6 @@ select {
   border: none;
   background: none;
   outline: none;
-  -webkit-appearance: none;
-     -moz-appearance: none;
-          appearance: none;
 }
 input:focus,
 button:focus,
