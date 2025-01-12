@@ -4,44 +4,43 @@ const addIngredientButton = document.getElementById("add-ingredient");
 const calculateButton = document.getElementById("calculate-recipe");
 const saveNewRecipeButton = document.getElementById("save-new-recipe");
 const recipeSelect = document.getElementById("recipe-select");
-const resultDiv = document.getElementById("calculated-result");
+const resultModal = document.getElementById("modalResult");
+const resultModalContent = document.getElementById("calculated-result"); // 모달 내 결과 컨텐츠를 담을 div
 
 // 모달 관련 요소 가져오기
-const openModalButton = document.getElementById("open-modal");
+const openModalButton = document.getElementById("open-modal"); // 새 레시피 추가 버튼
 const closeModalButton = document.getElementById("close-recipe-modal");
 const recipeModal = document.getElementById("modalAdd");
-const resultModal = document.getElementById("modalResult");
 const modalIngredientsList = document.getElementById("modal-ingredients-list");
 const modalAddIngredientButton = document.getElementById("modal-add-ingredient");
 const recipeNameInput = document.getElementById("recipe-name");
+const closeResultModalButton = document.getElementById("close-result-modal"); // 모달 닫기 버튼
 
-// ** 모달 열기/닫기 기능 **
-calculateButton.addEventListener("click", () => {
-  resultModal.style.display = "block";
-});
-
+// ** 새 레시피 추가 모달 열기 **
 openModalButton.addEventListener("click", () => {
-  recipeModal.style.display = "block";
-});
-closeModalButton.addEventListener("click", () => {
-  recipeModal.style.display = "none";
+  recipeModal.style.display = "block"; // 새 레시피 모달 열기
 });
 
 // ** 모달에서 재료 추가 기능 **
 modalAddIngredientButton.addEventListener("click", () => {
+  addIngredient(modalIngredientsList); // 재료 추가 함수 호출
+});
+
+// ** 중복되는 재료 추가 함수 **
+function addIngredient(ingredientList) {
   const newGroup = document.createElement("div");
   newGroup.className = "p-main__item-input";
   newGroup.innerHTML = `
-    <input type="text" placeholder="" class="c-input__item name">
-    <input type="text" placeholder="" class="c-input__item amount">
+    <input type="text" placeholder="재료명" class="c-input__item name">
+    <input type="text" placeholder="양" class="c-input__item amount">
     <button class="c-btn__delete"></button>
   `;
-  modalIngredientsList.appendChild(newGroup);
+  ingredientList.appendChild(newGroup);
 
   newGroup.querySelector(".c-btn__delete").addEventListener("click", () => {
     newGroup.remove(); // 재료 삭제
   });
-});
+}
 
 // ** 새 레시피 저장 기능 **
 saveNewRecipeButton.addEventListener("click", () => {
@@ -51,10 +50,10 @@ saveNewRecipeButton.addEventListener("click", () => {
     return;
   }
 
-  const ingredients = Array.from(modalIngredientsList.querySelectorAll(".input-group"))
+  const ingredients = Array.from(modalIngredientsList.querySelectorAll(".p-main__item-input"))
     .map((group) => {
-      const name = group.querySelector(".modal-ingredient-name").value.trim();
-      const amount = parseFloat(group.querySelector(".modal-ingredient-amount").value);
+      const name = group.querySelector(".name").value.trim();
+      const amount = parseFloat(group.querySelector(".amount").value);
       return { name, amount };
     })
     .filter((ingredient) => ingredient.name && !isNaN(ingredient.amount));
@@ -76,6 +75,12 @@ saveNewRecipeButton.addEventListener("click", () => {
 function updateRecipeList() {
   const savedRecipes = JSON.parse(localStorage.getItem("recipes")) || {};
 
+  // 기존 레시피를 다 지우지 않고 새 레시피만 추가
+  const options = recipeSelect.querySelectorAll("option");
+  options.forEach((option) => {
+    if (option.value !== "") option.remove(); // 기존 레시피 옵션 삭제
+  });
+
   for (const recipeName in savedRecipes) {
     const option = document.createElement("option");
     option.value = recipeName;
@@ -83,9 +88,11 @@ function updateRecipeList() {
     recipeSelect.appendChild(option);
   }
 }
-window.onload = updateRecipeList; // 페이지 로드 시 호출
 
-// 레시피 선택 시 재료 불러오기
+// 페이지 로드 시 레시피 목록 업데이트
+window.onload = updateRecipeList;
+
+// ** 레시피 선택 시 재료 불러오기 **
 recipeSelect.addEventListener("change", () => {
   const selectedRecipeName = recipeSelect.value;
   if (!selectedRecipeName) return;
@@ -108,24 +115,11 @@ recipeSelect.addEventListener("change", () => {
       newGroup.remove(); // 재료 삭제 기능
     });
   });
-
-  console.log("불러온 재료 리스트:", Array.from(ingredientsList.querySelectorAll(".ingredient-name")));
 });
 
 // ** 재료 추가 기능 **
 addIngredientButton.addEventListener("click", () => {
-  const newGroup = document.createElement("div");
-  newGroup.className = "p-main__item-input";
-  newGroup.innerHTML = `
-    <input type="text" placeholder="" class="c-input__item name">
-    <input type="text" placeholder="" class="c-input__item amount">
-    <button class="c-btn__delete"></button>
-  `;
-  ingredientsList.appendChild(newGroup);
-
-  newGroup.querySelector(".c-btn__delete").addEventListener("click", () => {
-    newGroup.remove(); // 재료 삭제
-  });
+  addIngredient(ingredientsList); // 재료 추가 함수 호출
 });
 
 // ** 레시피 계산 기능 **
@@ -143,16 +137,27 @@ calculateButton.addEventListener("click", () => {
     .filter((ingredient) => ingredient.name && !isNaN(ingredient.amount)); // 유효성 검사
 
   if (ingredients.length === 0) {
-    resultDiv.innerHTML = "<p>재료를 입력해 주세요!</p>";
+    resultModalContent.innerHTML = "<p>재료를 입력해 주세요!</p>";
     return;
   }
 
-  // 결과 HTML 생성
+  let resultHTML = "";
   ingredients.forEach((ingredient) => {
-    const newAmount = ingredient.amount * reduceRatio; // 계산 결과
-    const displayAmount = Number.isInteger(newAmount) ? newAmount : newAmount.toFixed(1); // 정수 여부에 따라 소수점 처리
+    const newAmount = ingredient.amount * reduceRatio;
+    const displayAmount = Number.isInteger(newAmount) ? newAmount : newAmount.toFixed(1);
     resultHTML += `<p>${ingredient.name}: ${displayAmount}${ingredient.unit}</p>`;
   });
 
-  resultDiv.innerHTML = resultHTML; // 결과 출력
+  resultModalContent.innerHTML = resultHTML; // 모달에 결과 출력
+  resultModal.style.display = "block"; // 모달 열기
+});
+
+// ** modalResult 닫기 기능 **
+closeResultModalButton.addEventListener("click", () => {
+  resultModal.style.display = "none"; // 모달 닫기
+});
+
+// ** 새 레시피 추가 모달 닫기 **
+closeModalButton.addEventListener("click", () => {
+  recipeModal.style.display = "none"; // 레시피 모달 닫기
 });
