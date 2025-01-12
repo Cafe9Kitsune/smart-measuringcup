@@ -30,6 +30,10 @@ document.body.addEventListener("click", function (e) {
 // ** 새 레시피 추가 모달 열기 **
 openModalButton.addEventListener("click", () => {
   recipeModal.style.display = "block"; // 새 레시피 모달 열기
+  const deleteButtons = modalIngredientsList.querySelectorAll(".c-btn__delete");
+  deleteButtons.forEach((button) => {
+    handleDeleteButton(button, modalIngredientsList);
+  });
 });
 
 // ** 공통된 재료 삭제 함수 **
