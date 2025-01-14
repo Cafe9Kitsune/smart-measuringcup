@@ -16,13 +16,20 @@ $icon_info: url("data:image/svg+xml;charset=UTF-8,%3Csvg width%3D%2215%22 height
 $icon_arw-line: url("data:image/svg+xml;charset=UTF-8,%3Csvg width%3D%2210%22 height%3D%227%22 viewBox%3D%220 0 10 7%22 fill%3D%22none%22 xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cpath d%3D%22M1 1.5L5 5.5L9 1.5%22 stroke%3D%22%23EAAC6E%22 stroke-width%3D%221.6%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22/%3E%3C/svg%3E");
 $icon_arw-circle: url("data:image/svg+xml;charset=UTF-8,%3Csvg width%3D%2220%22 height%3D%2219%22 viewBox%3D%220 0 20 19%22 fill%3D%22none%22 xmlns%3D%22http%3A//www.w3.org/2000/svg%22%3E%3Cg clip-path%3D%22url(%23clip0_6_382)%22%3E%3Cpath d%3D%22M0.145996 9.5C0.145996 4.25329 4.39929 0 9.646 0C14.8927 0 19.146 4.25329 19.146 9.5C19.146 14.7467 14.8927 19 9.646 19C4.39929 19 0.145996 14.7467 0.145996 9.5Z%22 fill%3D%22url(%23paint0_linear_6_382)%22/%3E%3Cpath d%3D%22M4.646 7L9.646 12L14.646 7%22 stroke%3D%22%23F5F5F5%22 stroke-width%3D%222%22 stroke-linecap%3D%22round%22 stroke-linejoin%3D%22round%22/%3E%3C/g%3E%3Cdefs%3E%3ClinearGradient id%3D%22paint0_linear_6_382%22 x1%3D%220.145996%22 y1%3D%229.5748%22 x2%3D%2219.146%22 y2%3D%229.5748%22 gradientUnits%3D%22userSpaceOnUse%22%3E%3Cstop stop-color%3D%22%23FF6700%22/%3E%3Cstop offset%3D%221%22 stop-color%3D%22%23FF9832%22/%3E%3C/linearGradient%3E%3CclipPath id%3D%22clip0_6_382%22%3E%3Cpath d%3D%22M0.145996 9.5C0.145996 4.25329 4.39929 0 9.646 0C14.8927 0 19.146 4.25329 19.146 9.5C19.146 14.7467 14.8927 19 9.646 19C4.39929 19 0.145996 14.7467 0.145996 9.5Z%22 fill%3D%22white%22/%3E%3C/clipPath%3E%3C/defs%3E%3C/svg%3E");
 
+html {
+  font-size: 50%;
+  @include breakpoint(md) {
+    font-size: 62.5%;
+  }
+}
+
 body {
   background-color: $color_wh;
+  color: $color_blk;
+  font-size: 1.6rem;
   @include breakpoint(md) {
     background-color: $color_gray;
   }
-  color: $color_blk;
-  font-size: 16px;
 }
 
 select,
@@ -31,10 +38,10 @@ input {
   transition: box-shadow 0.15s ease;
   &:focus {
     border-radius: 8px;
-    box-shadow: 0 0 4px rgba($color_pt, 0.7);
+    box-shadow: 0 0 0.4rem rgba($color_pt, 0.7);
   }
   &:hover {
-    box-shadow: 0 0 4px rgba($color_pt, 0.4);
+    box-shadow: 0 0 0.4rem rgba($color_pt, 0.4);
     caret-color: #333 !important;
   }
 }
@@ -60,17 +67,17 @@ i {
   &__info {
     @extend .u-icon__info;
     background-position: center;
-    background-size: 16px;
-    width: 16px;
-    height: 16px;
+    background-size: 1.6rem;
+    width: 1.6rem;
+    height: 1.6rem;
     display: inline-block;
   }
   &__check {
     @extend .u-icon__check;
     background-position: center;
-    background-size: 20px;
-    width: 20px;
-    height: 20px;
+    background-size: 2rem;
+    width: 2rem;
+    height: 2rem;
     display: inline-block;
   }
 }
@@ -78,20 +85,20 @@ i {
 .c-btn {
   &-wrap-full {
     width: 100%;
-    margin: 15px auto;
+    margin: 1.5rem auto;
     display: flex;
     flex-direction: column;
-    gap: 5px;
+    gap: 0.5rem;
   }
   &-wrap-col2 {
     display: grid;
     grid-template-columns: 6fr 4fr;
-    gap: 15px;
+    gap: 1.5rem;
   }
   width: 100%;
   border: none;
   border-radius: 12px;
-  height: 45px;
+  height: 4.5rem;
   cursor: pointer;
   &__save {
     @extend .c-btn, .u-gradation;
@@ -118,7 +125,7 @@ i {
     width: 100%;
     height: 100%;
     @extend .u-icon__delete;
-    background-size: 15px 15px !important;
+    background-size: 1.5rem 1.5rem !important;
     background-repeat: no-repeat !important;
     background-position: center !important;
     cursor: pointer;
@@ -133,7 +140,7 @@ i {
 }
 
 .c-select {
-  padding: 0 20px;
+  padding: 0 2rem;
   border-radius: 8px;
   &__recipe {
     @extend .c-select;
@@ -141,23 +148,23 @@ i {
     color: $color_pt_sub;
     background-color: $color_wh;
     @extend .u-icon__arw-circle;
-    background-position: right 15px center;
-    background-size: 20px;
+    background-position: right 1.5rem center;
+    background-size: 2rem;
   }
   &__rate {
     @extend .c-select, .u-icon__arw-line;
-    height: 40px;
+    height: 4rem;
     background-color: $color_gray;
-    letter-spacing: 5px;
-    background-position: right 10px center;
-    background-size: 10px;
+    letter-spacing: 0.5rem;
+    background-position: right 1rem center;
+    background-size: 1rem;
   }
 }
 
 .c-input {
   width: 100%;
-  height: 40px;
-  padding: 16px 20px;
+  height: 4rem;
+  padding: 1.6rem 2rem;
   border: none;
   border-radius: 8px;
   &__item {
@@ -169,7 +176,7 @@ i {
     background-color: $color_wh;
     text-align: center;
     font-weight: bold;
-    height: 45px;
+    height: 4.5rem;
     &::placeholder {
       color: $color_txt_hold !important;
     }
@@ -178,20 +185,20 @@ i {
 
 .c-wrap-gray {
   background-color: $color_gray;
-  padding: 20px;
+  padding: 2rem;
   border-radius: 8px;
-  margin: 20px auto;
+  margin: 2rem auto;
 }
 
 // page
 .p-main {
   background-color: $color_wh;
   @include breakpoint(md) {
-    max-width: 600px;
-    margin: 30px auto;
-    padding: 20px;
-    border-radius: 10px;
-    box-shadow: 0 0 10px rgba($color_pt, 0.1);
+    max-width: 60rem;
+    margin: 3rem auto;
+    padding: 2rem;
+    border-radius: 1rem;
+    box-shadow: 0 0 1rem rgba($color_pt, 0.1);
   }
 
   h4 {
@@ -200,9 +207,9 @@ i {
   }
 
   &__rate {
-    margin: 15px auto;
+    margin: 1.5rem auto;
     font-weight: bold;
-    gap: 10px;
+    gap: 1rem;
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -217,33 +224,33 @@ i {
         display: flex;
         align-items: center;
         .c-icon__info {
-          margin-left: 5px;
-          padding-left: 25px;
+          margin-left: 0.5rem;
+          padding-left: 2.5rem;
         }
         span {
           font-weight: normal;
           color: $color_txt_hold;
-          font-size: 13px;
+          font-size: 0.8em;
         }
       }
     }
     &-wrap {
       display: flex;
       flex-direction: column;
-      gap: 10px;
-      margin: 5px auto 10px;
+      gap: 1rem;
+      margin: 0.5rem auto 1rem;
     }
     &-input {
       display: grid;
       grid-template-columns: 5fr 4.5fr 0.5fr;
-      gap: 10px;
+      gap: 1rem;
     }
     &-addbtn {
       display: flex;
       flex-direction: row;
-      gap: 10px;
+      gap: 1rem;
       align-items: center;
-      height: 40px;
+      height: 4rem;
       transition: color 0.2s ease;
       cursor: pointer;
       color: $color_pt;
@@ -281,7 +288,7 @@ i {
     // visibility: hidden;
     display: none;
     h4 {
-      margin-bottom: 20px;
+      margin-bottom: 2rem;
     }
   }
   &-container {
@@ -292,25 +299,25 @@ i {
     left: 50%;
     transform: translate(-50%, -50%);
     width: 90vw;
-    margin: 10px auto;
-    padding: clamp(20px, 4vw, 35px);
+    margin: 1rem auto;
+    padding: clamp(2rem, 4vw, 3.5rem);
     @include breakpoint(md) {
-      width: 500px;
+      width: 50rem;
     }
   }
   &-whbox {
     border-radius: 8px;
     background-color: $color_wh;
-    padding: 20px;
-    margin: 20px auto;
+    padding: 2rem;
+    margin: 2rem auto;
   }
   &-result {
-    padding: 15px 20px;
+    padding: 1.5rem 2rem;
     display: flex;
     flex-direction: column;
-    gap: 16px;
+    gap: 1.6rem;
     @include breakpoint(md) {
-      padding: 20px;
+      padding: 2rem;
     }
     .item {
       @include breakpoint(md) {
@@ -319,7 +326,7 @@ i {
       }
       display: grid;
       grid-template-columns: 7fr 3fr;
-      gap: 10px;
+      gap: 1rem;
       position: relative;
       &:last-of-type::after {
         display: none;
@@ -334,14 +341,14 @@ i {
       }
     }
     .name {
-      margin-left: 4px;
+      margin-left: 0.4rem;
     }
     .amount {
       white-space: nowrap;
       font-weight: bold;
       background-color: $color_gray;
       border-radius: 99px;
-      padding: 4px;
+      padding: 0.4rem;
       text-align: center;
     }
   }
@@ -350,7 +357,7 @@ i {
 // util
 .u-inner {
   width: 90%;
-  margin: 20px auto;
+  margin: 2rem auto;
 }
 
 .u-gradation {
@@ -390,7 +397,7 @@ i {
   &-row {
     display: flex;
     flex-direction: row;
-    gap: 8px;
+    gap: 0.8rem;
     align-items: center;
   }
 }
