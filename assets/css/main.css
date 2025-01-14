@@ -77,7 +77,7 @@ select:focus {
 
 /* Remove all animations and transitions for people that prefer not to see them */
 html {
-  font-size: 50%;
+  font-size: 56.25%;
 }
 @media only screen and (min-width: 768px) {
   html {
@@ -165,6 +165,7 @@ i {
   gap: 1.5rem;
 }
 .c-btn__save {
+  white-space: nowrap;
   color: #fff;
   transition: opacity 0.2s ease;
 }
@@ -208,6 +209,12 @@ i {
   background-color: #fff;
   background-position: right 1.5rem center;
   background-size: 2rem;
+  padding: 0 2rem 0 1.7rem;
+}
+@media only screen and (min-width: 768px) {
+  .c-select__recipe {
+    padding: 0 2rem;
+  }
 }
 .c-select__rate {
   height: 4rem;
@@ -243,8 +250,8 @@ i {
 .c-wrap-gray {
   background-color: #f9f6f4;
   padding: 2rem;
-  border-radius: 8px;
   margin: 2rem auto;
+  border-radius: 8px;
 }
 
 .p-main {
@@ -288,6 +295,7 @@ i {
   font-weight: normal;
   color: #eaac6e;
   font-size: 0.8em;
+  white-space: nowrap;
 }
 .p-main__item-wrap {
   display: flex;
@@ -410,6 +418,16 @@ i {
 .u-inner {
   width: 90%;
   margin: 2rem auto;
+}
+.u-inner__pc {
+  width: 100%;
+  border-radius: 0;
+}
+@media only screen and (min-width: 768px) {
+  .u-inner__pc {
+    width: 90%;
+    margin: 2rem auto;
+  }
 }
 
 .u-gradation, .c-btn__save {

@@ -20,74 +20,74 @@
       <div class="u-inner">
         <h2>레시피의 분량을 <i>원하는 비율로 줄여보세요!</i></h2>
         <h4>자주 필요한 레시피는 저장하여 바로 불러올 수 있어요.</h4>
-        <div class="c-wrap-gray">
-          <div class="c-btn-wrap-col2">
-            <select id="recipe-select" class="c-select__recipe">
-              <option value="">레시피를 선택하세요</option>
-            </select>
-            <button class="c-btn__save" id="open-modal">새 레시피 추가</button>
-          </div>
-        </div>
-        <div class="divider"></div>
+      </div>
 
-        <!-- <h3>레시피 비율 변환</h3> -->
-        <div class="p-main__rate">
-          <select id="reduce-ratio" class="c-select__rate">
-            <option value="0.5">1/2</option>
-            <option value="0.33">1/3</option>
-            <option value="0.25">1/4</option>
+      <div class="c-wrap-gray u-inner__pc">
+        <div class="c-btn-wrap-col2">
+          <select id="recipe-select" class="c-select__recipe">
+            <option value="">레시피를 선택하세요</option>
           </select>
-          <label for="reduce-ratio">비율로 계산할게요.</label>
+          <button class="c-btn__save" id="open-modal">새 레시피 추가</button>
         </div>
+      </div>
+      <!-- <h3>레시피 비율 변환</h3> -->
+      <div class="p-main__rate u-inner">
+        <select id="reduce-ratio" class="c-select__rate">
+          <option value="0.5">1/2</option>
+          <option value="0.33">1/3</option>
+          <option value="0.25">1/4</option>
+        </select>
+        <label for="reduce-ratio">비율로 계산할게요.</label>
+      </div>
 
-        <div class="p-main__item">
-          <div class="p-main__item-header">
-            <div>재료명</div>
-            <div>
-              양
-              <span class="c-icon__info"></span>
-              <span>숫자만 입력해도 됩니다</span>
-            </div>
+      <div class="p-main__item u-inner">
+        <div class="p-main__item-header">
+          <div>재료명</div>
+          <div>
+            양
+            <span class="c-icon__info"></span>
+            <span>숫자만 입력해도 됩니다</span>
           </div>
-          <div class="p-main__item-wrap" id="ingredients-list">
-            <div class="p-main__item-input">
-              <input type="text" placeholder="밀가루" class="c-input__item name" />
-              <input type="text" placeholder="100g" class="c-input__item amount" />
-              <button class="c-btn__delete"></button>
-            </div>
-            <div class="p-main__item-input">
-              <input type="text" placeholder="우유" class="c-input__item name" />
-              <input type="text" placeholder="100ml" class="c-input__item amount" />
-              <button class="c-btn__delete"></button>
-            </div>
-            <div class="p-main__item-input">
-              <input type="text" placeholder="설탕" class="c-input__item name" />
-              <input type="text" placeholder="100g" class="c-input__item amount" />
-              <button class="c-btn__delete"></button>
-            </div>
-            <div class="p-main__item-input">
-              <input type="text" placeholder="계란" class="c-input__item name" />
-              <input type="text" placeholder="100g" class="c-input__item amount" />
-              <button class="c-btn__delete"></button>
-            </div>
+        </div>
+        <div class="p-main__item-wrap" id="ingredients-list">
+          <div class="p-main__item-input">
+            <input type="text" placeholder="밀가루" class="c-input__item name" />
+            <input type="text" placeholder="100g" class="c-input__item amount" />
+            <button class="c-btn__delete"></button>
+          </div>
+          <div class="p-main__item-input">
+            <input type="text" placeholder="우유" class="c-input__item name" />
+            <input type="text" placeholder="100ml" class="c-input__item amount" />
+            <button class="c-btn__delete"></button>
+          </div>
+          <div class="p-main__item-input">
+            <input type="text" placeholder="설탕" class="c-input__item name" />
+            <input type="text" placeholder="100g" class="c-input__item amount" />
+            <button class="c-btn__delete"></button>
+          </div>
+          <div class="p-main__item-input">
+            <input type="text" placeholder="계란" class="c-input__item name" />
+            <input type="text" placeholder="100g" class="c-input__item amount" />
+            <button class="c-btn__delete"></button>
           </div>
         </div>
         <button class="p-main__item-addbtn" id="add-ingredient"><span class="c-btn__add"></span>재료 추가하기</button>
         <div class="c-btn-wrap-full">
           <button class="c-btn__save" id="calculate-recipe">계산하기</button>
         </div>
+      </div>
 
-        <div class="p-main__saveform c-wrap-gray">
-          <div class="u-flex-row">
-            <span class="c-icon__check"></span>
-            <div class="txt">입력한 레시피를 바로 저장할 수 있어요.</div>
-          </div>
-          <div class="c-btn-wrap-col2">
-            <input type="text" placeholder="레시피 이름" class="c-input__recipe" />
-            <button class="c-btn__save" id="save-btn">저장하기</button>
-          </div>
+      <div class="p-main__saveform c-wrap-gray u-inner__pc">
+        <div class="u-flex-row">
+          <span class="c-icon__check"></span>
+          <div class="txt">입력한 레시피를 바로 저장할 수 있어요.</div>
+        </div>
+        <div class="c-btn-wrap-col2">
+          <input type="text" placeholder="레시피 이름" class="c-input__recipe" />
+          <button class="c-btn__save" id="save-btn">저장하기</button>
         </div>
       </div>
+
       <!-- MODAL : Add -->
       <div id="modalAdd" class="modal-wrap">
         <div class="modal-container">
